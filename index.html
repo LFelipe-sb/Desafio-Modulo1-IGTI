@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <title>Desafio Final</title>
+    </head>
+    <body>
+        <div class="container center">
+            <h1>Pesquisa de Usuários</h1>
+            <div class="row">
+                <div class="input-field col s12 m9 l10">
+                  <input id="inputPeopleName" type="text" class="validate">
+                  <label class="active" for="first_name2">Buscar por nome:</label>
+                </div>
+                <button class="btn waves-effect waves-light btn l2">Pesquisar</button>
+            </div>
+
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+                </div>
+                <span>Por favor, aguarde! Estamos buscando os usuários.</span>
+            </div>
+
+            <div class="data-container">
+                <div class="user-list">
+                  <h3>Nenhum usuário filtrado.</h3>
+                  <div id="tabCountries"></div>
+                </div>
+                <div class="details-list">
+                  <h3>Nada a ser exibido.</h3>
+                  <div id="tabFavorites"></div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="./js/script.js"></script>
+    </body>
+</html>
