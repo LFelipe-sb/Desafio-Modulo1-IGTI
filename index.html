@@ -15,35 +15,38 @@
                   <input id="inputPeopleName" type="text" class="validate">
                   <label class="active" for="first_name2">Buscar por nome:</label>
                 </div>
-                <button class="btn waves-effect waves-light btn l2">Pesquisar</button>
+                <button class="btn waves-effect waves-light btn l2" id="btnSearch">Pesquisar</button>
             </div>
 
-            <div class="preloader-wrapper big active">
-                <div class="spinner-layer spinner-blue-only">
-                  <div class="circle-clipper left">
-                    <div class="circle"></div>
-                  </div><div class="gap-patch">
-                    <div class="circle"></div>
-                  </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                  </div>
-                </div>
+            <div id="spinner">
+                <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
                 </div>
                 <span>Por favor, aguarde! Estamos buscando os usuários.</span>
             </div>
+        </div>
 
-            <div class="data-container">
-                <div class="user-list">
-                  <h3>Nenhum usuário filtrado.</h3>
-                  <div id="tabCountries"></div>
-                </div>
-                <div class="details-list">
-                  <h3>Nada a ser exibido.</h3>
-                  <div id="tabFavorites"></div>
-                </div>
+        <div class="data-container">
+            <div class="user-list">
+                <h3 id="userListTitle">Nenhum usuário filtrado.</h3>
+                <div id="tabUsers"></div>
+            </div>
+            <div class="details-list">
+                <h3 id="detailListTitle">Nada a ser exibido.</h3>
+                <div id="tabDetails"></div>
             </div>
         </div>
         
-        <script src="./js/script.js"></script>
+        <script defer src="./js/script.js"></script>
     </body>
 </html>
