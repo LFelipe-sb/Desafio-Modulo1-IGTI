@@ -3,7 +3,7 @@ let globalFilterUsers = [];
 let inputName = document.getElementById('inputPeopleName');
 
 async function start(){
-    await fecthUsers();
+    await promiseFecthUsers();
 
     hideSpinner();
     render();
@@ -17,12 +17,25 @@ async function fecthUsers(){
         return{
             userName: `${name.first} ${name.last}`,
             userGender: gender,
-            userPicture: picture,
+            userPicture: picture.thumbnail,
             userAge: dob.age
         }
     });
 
     globalFilterUsers = globalUsers;
+}
+
+function promiseFecthUsers(){
+    let divSearch = document.getElementById('divSearch');
+    divSearch.classList.add('hide');
+    
+    return new Promise(async(resolve, reject) => {
+        const user = await fecthUsers();
+        setTimeout(() => {
+            resolve(user);
+            divSearch.classList.remove('hide');
+        }, 3000);
+    });
 }
 
 function loadData(){
@@ -55,8 +68,8 @@ function loadData(){
                     totalMale++;
                 }
                 return `
-                    <div>
-                        <img src='${userPicture}' alt='${userName}'/>
+                    <div class='flex-row'>
+                        <img src='${userPicture}' alt='${userName}' class='image'/>
                         <span>${userName}, ${userAge} anos</span>
                     </div>        
                 `
@@ -84,8 +97,8 @@ function hideSpinner(){
 
 function render(){
     let btnSearch = document.getElementById('btnSearch');
-    btnSearch.addEventListener('click', handleSearchItems);
-    
+    btnSearch.addEventListener('click', handleSearchItems);    
+   
     function handleSearchItems(){
         const filterValue = inputName.value.toLowerCase().trim(); //TRIM: Remove espaçamentos.
         globalFilterUsers = globalUsers.filter(item => {
@@ -93,8 +106,6 @@ function render(){
         });
         loadData();
     }
-
-    btnSearch.addEventListener('click', handleSearchItems);
 }
 
 start();
